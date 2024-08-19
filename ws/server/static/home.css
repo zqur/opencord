@@ -1,0 +1,31 @@
+body{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.Options{
+    display:flex; 
+    flex-direction: row;
+}
+
+
+.Option{
+    padding: 0px 1em 0px 1em;
+    text-align: center;
+}
+
+.Content{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh; 
+    margin:0; 
+    text-align: center;
+
+}
+
+h1{
+    font-size:xxx-large;
+}
