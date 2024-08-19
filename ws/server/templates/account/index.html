@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script src="{{url_for('static', filename='accountIndex.js')}}"></script>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='accountIndex.css') }}">
+{% endblock %}
+
+{% block header %}
+  <h1>{% block title %}Certificates{% endblock %}</h1>
+{% if g.user %}
+<a class="Mbutton" onclick="displayModal();">Create Certificate</a>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<div class="Modal" style="display:none;">
+  <div class="Modal-content">
+    <span class="Close" onclick="closeModal();">&times;</span><br>
+    <form action="{{ url_for('account.create', id=g.user["id"]) }}" class="CSR" method="post">
+      <h1>New Certificate</h1>
+      <label for="account">Account ID</label><br>
+      <input type="text" name="account" required>
+      <br><label for="name">Certificate Name</label><br>
+      <input type="text" name="name">
+      <br><label for="description">Certificate Description</label><br>
+      <input type="text" name="description">
+      <button type="submit" class="Submit" value="Create">Continue</button>
+    </form>
+  </div>
+</div>
+
+<div class="Certificates">
+  {% for cert in certs %}
+  <ul class="certs">
+    <li>Name: {{ cert['name']}}</li>
+    <li>Description: {{ cert['description']}}</li>
+    <li>Serial Number: {{ cert['serial_number']}}</li>
+    <li>Valid: {{ cert['valid']}}</li>
+    <li>Expires: {{ cert['expires']}}</li>
+    <li>Account: {{ cert['uuid']}}</li>
+  </ul>
+  {% endfor %}
+
+  {% for cert in certs %}
+  <ul class="Options">
+      <li>
+        <a href="{{url_for('account.downloadFile', id=cert['id'])}}">Download Certificate</a>
+      </li>
+      <li>Edit</li>
+      <!--<li>View</li>-->
+  </ul>
+  {% endfor %}
+
+</div>
+
+{% endblock %}
+
