@@ -1,3 +1,5 @@
+---Next.js Implementation WIP---
+
 To run the application:
 1. Clone the repository
 2. Run npm i
