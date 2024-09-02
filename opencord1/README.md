@@ -7,6 +7,7 @@ To run the application:
 4. Run npm run dev
 
 -if connecting to a new database and using provided prisma schema, will need to migrate with following:
+
   npx prisma generate
   npx prisma migrate dev --name init
 
