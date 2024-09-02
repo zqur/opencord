@@ -7,7 +7,7 @@ To run the application:
 4. Run npm run dev
 
 -if connecting to a new database and using provided prisma schema, will need to migrate with following:
-npx prisma generate
-npx prisma migrate dev --name init
+-npx prisma generate
+-npx prisma migrate dev --name init
 
 'init' can be any name of your choosing, this will update schema of remote database to the provided schema.
